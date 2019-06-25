@@ -128,6 +128,7 @@ class V2DiagnosticException(Exception):
     self._diagnostics = _DiagnosticsFromContent(content)
     message = '\n'.join(
         ['response: %s' % resp] +
+        ['raw_content: <<<%s>>>' % content] +
         ['%s: %s' % (d.message, d.detail) for d in self._diagnostics])
     super(V2DiagnosticException, self).__init__(message)
 

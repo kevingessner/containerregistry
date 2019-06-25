@@ -395,6 +395,7 @@ class Transport(object):
     if resp.status not in accepted_codes:
       # Use the content returned by GCR as the error message.
       raise V2DiagnosticException(resp, content)
+    print('docker_http_resp: url=%s response=%s content=%s' % (url, resp, content))
 
     return resp, content
 
